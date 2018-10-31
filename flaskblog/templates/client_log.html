@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+{% block content %}
+	<div class="content-section">
+	  <div class="media">
+	  	<div class="account-img-container rounded">
+	  	<a class="mr-2" href="{{ url_for('clients.client_progress', username=client.username )}}">
+          	<img class="account-img" src="{{ url_for('static', filename='profile_pics/' + client.image_file) }}">
+        </a>	
+    	</div>
+	    <div class="media-body">
+	      <h2 class="account-heading">{{ client.username }}</h2>
+	      <p class="text-secondary">{{ client.email }}</p>
+	    </div>
+	  </div>
+	  <div>
+    	{% for image in images %}
+	  	<figure style="display: inline-block;">
+          	<figcaption> {{ image.date_posted.strftime('%m/%d') }}</figcaption>
+	          <a class="mr-2" href="{{ url_for('clients.image', username=client.username, image_file=image.image_file )}}">
+	          	<div class="log-img-container rounded">
+        			<img class="log-img"  src="{{ url_for('static', filename= client.username + '/'+  image.image_file) }}">
+      			</div>
+	          </a>	
+         </figure>
+         <br>	 
+		{% endfor %}
+	  </div>
+	</div>
+{% endblock content %}

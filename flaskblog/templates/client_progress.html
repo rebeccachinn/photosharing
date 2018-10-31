@@ -1,0 +1,61 @@
+{% extends "layout.html" %}
+{% block content %}
+	<div class="content-section">
+	  <div class="media">
+	  	<div class="rounded account-img-container">
+	    <img class="account-img" src="{{ image_file }}">
+		</div>
+	    <div class="media-body">
+	      <h2 class="account-heading">{{ user.username }}</h2>
+	      <p class="text-secondary">{{ user.email }}</p>
+			<a class="mr-2" href="{{ url_for('clients.client_log', username=user.username )}}">log</a>
+		</div>
+	  </div>
+	  <div>
+	  	<p>Average food Score = {{ avg }}</p>
+	  	<canvas id="myChart" width="400" height="400"></canvas>
+	  </div>
+	</div>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+	<script>
+		var ctx = document.getElementById("myChart").getContext('2d');
+
+		var response = $.get('/get_progress_data', {
+        	userID: {{ user.id | safe }},
+      	})
+      		.done(function(){
+      			console.log(response.responseJSON.dates)
+				var myChart = new Chart(ctx, {
+			    type: 'line',
+			    data: {
+			        labels: response.responseJSON.dates,
+			        datasets: [{
+			            label: 'rating',
+			            data: response.responseJSON.ratings,
+			            backgroundColor: [
+			                'rgba(255, 99, 132, 0.2)',
+			
+			            ],
+			            borderColor: [
+			                'rgba(255,99,132,1)',
+			            ],
+			            borderWidth: 1
+			        }]
+			    },
+			    options: {
+			        scales: {
+			            yAxes: [{
+			                ticks: {
+			                    beginAtZero:true
+			                }
+			            }]
+			        }
+			    }
+				});
+      		});
+
+
+	</script>
+{% endblock content %}

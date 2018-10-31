@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+{% block content %}
+  <article class="media content-section">
+    <a class="mr-2" href="{{ url_for('clients.client_log', username=client.username )}}"><img class="article-img" src="{{ url_for('static', filename='profile_pics/' + client.image_file) }}"></a>
+    <div class="media-body">
+      <div class="article-metadata">
+        <a class="mr-2" href="{{ url_for('clients.client_log', username=client.username )}}">{{ client.username }}</a>
+        <small class="text-muted">{{ image.date_posted.strftime('%Y-%m-%d') }}</small>
+      </div>
+        <img class="" src="{{ url_for('static', filename=client.username + '/' + image.image_file) }}">
+        <p>Rating: {{image.rating}}</p>
+        <p>Comment: {{image.comment}}</p>
+    </div>
+  </article>   
+{% endblock content %}

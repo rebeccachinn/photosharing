@@ -1,0 +1,26 @@
+<!-- {% extends "layout.html" %}
+{% block content %}
+  <div class="content-section">
+    <div class='row'>
+      <div class="col-md-10">
+      <input type="text" class="form-control" id="myMessage">
+    </div>
+    <div class="col-md-1">
+      <button id="sendbutton" class="btn">Send</button>
+    </div>
+  </div>
+  <br>
+  {% for msg in messages %}
+        <article class="media content-section">
+          <div class="media-body">
+            <div class="article-metadata">
+              <a class="mr-2" href="{{ url_for('clients.client_progress', username=msg.author.username )}}">{{ msg.author.username }}</a>
+              <small class="text-muted">{{ msg.date_posted.strftime('%m/%d, %I:%M%p') }}</small>
+            </div>
+            <p class="article-content">{{ msg.messageContent }}</p>
+          </div>
+        </article>
+    {% endfor %}
+  </div>
+
+{% endblock content %} -->
