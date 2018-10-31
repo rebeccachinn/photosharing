@@ -76,7 +76,7 @@ a.article-title:hover {
   height: auto;
   -webkit-transform: translate(-50%,-50%);
     -ms-transform: translate(-50%,-50%);
-    transform: translate(-50%,-50%);"
+    transform: translate(-50%,-50%);
 }
 .account-img-container{
   position:relative; 
@@ -105,7 +105,7 @@ a.article-title:hover {
   width: auto;
   -webkit-transform: translate(-50%,-50%);
     -ms-transform: translate(-50%,-50%);
-    transform: translate(-50%,-50%);"
+    transform: translate(-50%,-50%);
 }
 
 
@@ -124,5 +124,5 @@ a.article-title:hover {
   width: auto;
   -webkit-transform: translate(-50%,-50%);
     -ms-transform: translate(-50%,-50%);
-    transform: translate(-50%,-50%);"
+    transform: translate(-50%,-50%);
 }
