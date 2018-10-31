@@ -68,26 +68,17 @@ a.article-title:hover {
   vertical-align: middle;
 }
 
-.account-img {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  width: 100%;
-  height: auto;
-  -webkit-transform: translate(-50%,-50%);
-    -ms-transform: translate(-50%,-50%);
-    transform: translate(-50%,-50%);
+
+.account-heading {
+  font-size: 2.5rem;
 }
+
 .account-img-container{
   position:relative; 
   width:100px; 
   height:100px;
   overflow:hidden;
   margin:10px;
-}
-
-.account-heading {
-  font-size: 2.5rem;
 }
 
 .log-img-container{
@@ -97,26 +88,14 @@ a.article-title:hover {
   overflow:hidden
 }
 
-.log-img {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  height: 100%;
-  width: auto;
-  -webkit-transform: translate(-50%,-50%);
-    -ms-transform: translate(-50%,-50%);
-    transform: translate(-50%,-50%);
-}
-
-
 .feed-img-container{
   position:relative; 
-  width:300px; 
-  height:300px;
-  overflow:hidden
+  width:400px; 
+  height:400px;
+  overflow:hidden;
 }
 
-.feed-img {
+.center-crop-img {
   position: absolute;
   left: 50%;
   top: 50%;
@@ -125,4 +104,9 @@ a.article-title:hover {
   -webkit-transform: translate(-50%,-50%);
     -ms-transform: translate(-50%,-50%);
     transform: translate(-50%,-50%);
+}
+
+.portrait{
+  width: 100%;
+  height: auto;
 }

@@ -9,7 +9,7 @@
 	  	<figure style="display: inline-block;">
           <a class="mr-2" href="{{ url_for('clients.client_progress', username=client.username )}}">
           	<div class="account-img-container rounded">
-          		<img class="account-img" src="{{ url_for('static', filename='profile_pics/' + client.image_file) }}">
+          		<img class="center-crop-img portrait" src="{{ url_for('static', filename='profile_pics/' + client.image_file) }}">
           	</div>
           	<figcaption style="margin-left: 10px"> {{ client.username }}</figcaption>
           </a>	

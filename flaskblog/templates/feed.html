@@ -5,7 +5,7 @@
   <article class="media content-section">
     <div class="account-img-container rounded">
       <a class="mr-2" href="{{ url_for('clients.client_progress', username=tuple.image.client.username )}}">
-        <img class="account-img" src="{{ url_for('static', filename='profile_pics/' + tuple.image.client.image_file) }}">
+        <img class="center-crop-img portrait" src="{{ url_for('static', filename='profile_pics/' + tuple.image.client.image_file) }}">
       </a>
     </div>
     <div class="media-body">
@@ -14,9 +14,9 @@
         <small class="text-muted">{{ tuple.image.date_posted.strftime('%Y-%m-%d') }}</small>
       </div>
       <div class="feed-img-container rounded">
-        <img class="feed-img" src="{{ url_for('static', filename=tuple.image.client.username + '/' + tuple.image.image_file) }}">
+        <img class="center-crop-img" src="{{ url_for('static', filename=tuple.image.client.username + '/' + tuple.image.image_file) }}">
       </div>
-    </div>
+    
       <form method="POST" action = "">
         {{ tuple.form.hidden_tag() }}
         <fieldset class="form-group">
@@ -53,6 +53,7 @@
           {{tuple.form.submit(class="btn btn-outline-info")}}
         </div>
       </form>
+    </div>
   </article> 
 {% endfor %}  
 {% else %}
