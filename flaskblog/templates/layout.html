@@ -40,8 +40,14 @@
             <!-- Navbar Right Side -->
             <div class="navbar-nav">
             {% if current_user.is_authenticated %}
+            
+              <div class="nav-bar-pic-container">
+                <img class="center-crop-img" src="{{ url_for('static', filename='profile_pics/' + current_user.image_file) }}">
+              </div> 
+              <a class="nav-item nav-link" href="{{ url_for('users.account') }}">
+                  {{current_user.username}}
+              </a>
               <a class="nav-item nav-link" href="{{ url_for('users.logout') }}">Logout</a>
-              <a class="nav-item nav-link" href="{{ url_for('users.account') }}">Account</a>
             {% else %}
               <a class="nav-item nav-link" href="{{ url_for('users.login') }}">Login</a>
               <a class="nav-item nav-link" href="{{ url_for('users.register') }}">Register</a>

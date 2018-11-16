@@ -110,3 +110,13 @@ a.article-title:hover {
   width: 100%;
   height: auto;
 }
+
+
+.nav-bar-pic-container{
+    position:relative;
+    top: 5px;
+    width: 30px;
+    height:30px;
+    overflow: hidden;
+    border-radius: 50%;
+}

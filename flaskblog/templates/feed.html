@@ -8,11 +8,12 @@
         <img class="center-crop-img" src="{{ url_for('static', filename='profile_pics/' + tuple.image.client.image_file) }}">
       </a>
     </div>
-    <div class="media-body">
+    <div class="media-body container">
       <div class="article-metadata">
         <a class="mr-2" href="{{ url_for('clients.client_progress', username=tuple.image.client.username )}}">{{ tuple.image.client.username }}</a>
         <small class="text-muted">{{ tuple.image.date_posted.strftime('%Y-%m-%d') }}</small>
       </div>
+
       <div class="feed-img-container rounded">
         <img class="center-crop-img" src="{{ url_for('static', filename=tuple.image.client.username + '/' + tuple.image.image_file) }}">
       </div>

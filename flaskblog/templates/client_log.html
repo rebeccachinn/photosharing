@@ -16,7 +16,7 @@
     	{% for image in images %}
 	  	<figure style="display: inline-block;">
           	<figcaption> {{ image.date_posted.strftime('%m/%d') }}</figcaption>
-	          <a class="mr-2" href="{{ url_for('clients.image', username=client.username, image_file=image.image_file )}}">
+	          <a class="mr-2 " href="{{ url_for('clients.image', username=client.username, image_file=image.image_file )}}">
 	          	<div class="log-img-container rounded">
         			<img class="center-crop-img"  src="{{ url_for('static', filename= client.username + '/'+  image.image_file) }}">
       			</div>
