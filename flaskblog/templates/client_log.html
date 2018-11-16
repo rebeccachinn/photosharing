@@ -4,7 +4,7 @@
 	  <div class="media">
 	  	<div class="account-img-container rounded">
 	  	<a class="mr-2" href="{{ url_for('clients.client_progress', username=client.username )}}">
-          	<img class="center-crop-img portrait" src="{{ url_for('static', filename='profile_pics/' + client.image_file) }}">
+          	<img class="center-crop-img" src="{{ url_for('static', filename='profile_pics/' + client.image_file) }}">
         </a>	
     	</div>
 	    <div class="media-body">

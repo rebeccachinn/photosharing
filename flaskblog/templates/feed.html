@@ -5,7 +5,7 @@
   <article class="media content-section">
     <div class="account-img-container rounded">
       <a class="mr-2" href="{{ url_for('clients.client_progress', username=tuple.image.client.username )}}">
-        <img class="center-crop-img portrait" src="{{ url_for('static', filename='profile_pics/' + tuple.image.client.image_file) }}">
+        <img class="center-crop-img" src="{{ url_for('static', filename='profile_pics/' + tuple.image.client.image_file) }}">
       </a>
     </div>
     <div class="media-body">
@@ -58,7 +58,7 @@
 {% endfor %}  
 {% else %}
 <img src="{{ url_for('static', filename='kitten.jpg' )}}">
-kitten!
+<br>no other images to review! kitten!
 {% endif %}
 </div>
 {% endblock content %}
