@@ -2,7 +2,9 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_bcrypt import Bcrypt
 from flask_login import LoginManager
-# from flask_socketio import SocketIO
+
+#socket
+from flask_socketio import SocketIO
 from flask_admin import Admin
 from flask_admin.contrib.sqla import ModelView
 from flask_mail import Mail
@@ -14,7 +16,9 @@ app.config['SQLALCHEMY_DATABASE_URI']='sqlite:///site.db'
 db=SQLAlchemy(app)
 bcrypt = Bcrypt(app)
 login_manager = LoginManager(app)
-# socketio=SocketIO(app)
+
+#socket
+socketio=SocketIO(app)
 
 #passes in function name of the route to login
 login_manager.login_view='users.login'
@@ -31,14 +35,14 @@ mail=Mail(app)
 
 from flaskblog.users.routes import users
 from flaskblog.main.routes import main
-# from flaskblog.messages.routes import messages
+from flaskblog.messages.routes import messages
 from flaskblog.coaches.routes import coaches
 from flaskblog.clients.routes import clients
 from flaskblog.errors.handlers import errors
 
 app.register_blueprint(users)
 app.register_blueprint(main)
-# app.register_blueprint(messages)
+app.register_blueprint(messages)
 app.register_blueprint(coaches)
 app.register_blueprint(clients)
 app.register_blueprint(errors)
