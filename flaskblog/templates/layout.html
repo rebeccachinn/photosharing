@@ -20,7 +20,7 @@
     <header class="site-header">
       <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
         <div class="container">
-          <a class="navbar-brand mr-4" href="/">jarvis</a>
+          <a class="navbar-brand mr-4" href="/">Chat thing</a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggle" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -30,12 +30,23 @@
               <a class="nav-item nav-link" href="{{ url_for('clients.client_progress', username=current_user.username )}}") }}">Progress</a>
               <a class="nav-item nav-link" href="{{ url_for('clients.client_log', username=current_user.username )}}") }}">Log</a>
               <a class="nav-item nav-link" href="{{ url_for('clients.new_photo') }}">Add Photo</a>
+              <a class="nav-item nav-link" href="{{ url_for('messages.chat', client_room_id=current_user.id) }}">Chat</a>
+
             {% else %}
               <!-- user is coach -->
               <a class="nav-item nav-link" href="{{ url_for('coaches.feed') }}">Feed</a>
-
               <a class="nav-item nav-link" href="{{ url_for('coaches.view_clients') }}">Clients</a>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Chat
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  {% for client in current_user.clients %}
+                    <a class="dropdown-item" href="{{ url_for('messages.chat', client_room_id=client.id) }}">{{client.username}}</a>
+                  {% endfor %}
+                </div>
+              </li>
             {% endif %}
+
             </div>
             <!-- Navbar Right Side -->
             <div class="navbar-nav">
@@ -96,8 +107,8 @@
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.8/socket.io.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-    <script type="text/javascript" src="{{ url_for('static', filename='js/chat.js') }}"></script>
     <script type="text/javascript" src="{{ url_for('static', filename='js/util.js') }}"></script>
+    {% block tail_js  %}{% endblock %}
 
 </body>
 </html>

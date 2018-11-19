@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+{% block content %}
+  <div class="content-section">
+  <br>
+  <div id="messages">
+    {% for msg in messages %}
+      <article class="media content-section">
+        <div class="media-body">
+          <div class="article-metadata">
+            <a class="mr-2" href="{{ url_for('clients.client_progress', username=msg.author.username )}}">{{ msg.author.username }}</a>
+            <small class="text-muted">{{ msg.date_posted.strftime('%m/%d, %I:%M%p') }}</small>
+          </div>
+          <p class="article-content">{{ msg.messageContent }}</p>
+        </div>
+      </article>
+    {% endfor %}
+  </div>
+  <div class='row'>
+    <div class="col-md-7">
+    <input type="text" class="form-control" id="myMessage">
+  </div>
+    <div class="col-md-5">
+      <div id="client_room_id" style="display: none"> {{client_room_id}} </div>
+      <button id="sendbutton" class="btn">Send</button>
+      <button type="button" id="openSaveQAModal" class="btn" data-toggle="modal" data-target="#myModal">Send and Save Response</button>
+      <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+          <!-- Modal content-->
+          <div class="modal-content">
+            <div class="modal-body">
+              <h1>Save QA</h1>
+              <form>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Question</label>
+                  <textarea class="form-control" id="questionTextbox" rows="3"></textarea>
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputPassword1">Answer</label>
+                  <textarea class="form-control" id="answerTextbox" rows="3"></textarea>
+                </div>
+                <button type="button" id="saveQA" class="btn">Send and Save</button>
+                <button type="button" id="closeQA" class="btn btn-default" data-dismiss="modal">Cancel</button>
+
+              </form>
+            </div>
+          </div>
+         </div>
+    </div>
+  </div>
+  </div>
+</div>
+{% endblock content %}
+{% block tail_js  %}
+    <script type="text/javascript" src="{{ url_for('static', filename='js/chat.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/saveQA.js') }}"></script>
+{% endblock  %}
